@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Score App"),
+        title: const Text("Score App"),
         centerTitle: true,
       ),
       body: Padding(
@@ -60,36 +60,50 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Column(
                 children: [
-                  const Text(
-                    'Team A',
+                  const TextField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.purple,
+                          width: 2.0,
+                        ),
+                      ),
+                      hintText: 'Enter Team A name',
+                      hintStyle: TextStyle(
+                        color: Colors.red,
+                      ),
+                    ),
                     style: TextStyle(
-                      fontSize: 20,
                       color: Colors.red,
                       fontWeight: FontWeight.bold,
+                      fontSize: 30,
                     ),
+                    minLines: 1,
+                    maxLines: 3,
                   ),
                   Text(
                     numberA.toString(),
-                    style: TextStyle(
-                      fontSize: 80,
+                    style: const TextStyle(
+                      fontSize: 120,
                       color: Colors.red,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   RaisedButton(
                     color: Colors.red,
+                    onPressed: increaseNumberTeamA,
                     child: const Text(
                       'Increase',
                     ),
-                    onPressed: increaseNumberTeamA,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   RaisedButton(
                     color: Colors.red,
+                    onPressed: decreaseNumberTeamA,
                     child: const Text(
                       'Decrease',
                     ),
-                    onPressed: decreaseNumberTeamA,
                   ),
                 ],
               ),
@@ -97,36 +111,50 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Column(
                 children: [
-                  const Text(
-                    'Team B',
+                  const TextField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.purple,
+                          width: 2.0,
+                        ),
+                      ),
+                      hintText: 'Enter Team B name',
+                      hintStyle: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
                     style: TextStyle(
-                      fontSize: 20,
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
+                      fontSize: 30,
                     ),
+                    minLines: 1,
+                    maxLines: 3,
                   ),
                   Text(
                     numberB.toString(),
-                    style: TextStyle(
-                      fontSize: 80,
+                    style: const TextStyle(
+                      fontSize: 120,
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   RaisedButton(
                     color: Colors.blue,
+                    onPressed: increaseNumberTeamB,
                     child: const Text(
                       'Increase',
                     ),
-                    onPressed: increaseNumberTeamB,
                   ),
                   const SizedBox(height: 10),
                   RaisedButton(
                     color: Colors.blue,
+                    onPressed: decreaseNumberTeamB,
                     child: const Text(
                       'Decrease',
                     ),
-                    onPressed: decreaseNumberTeamB,
                   ),
                 ],
               ),
@@ -135,8 +163,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.restore_outlined),
         onPressed: resetNumber,
+        child: const Icon(Icons.restore_outlined),
       ),
     );
   }
